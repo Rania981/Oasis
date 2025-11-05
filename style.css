@@ -1,0 +1,414 @@
+/* Global reset and basic styling */
+* {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  color: #333;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
+}
+
+/* Container for overall page width */
+.container {
+  max-width: 1200px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  padding-bottom: 50px;
+  box-sizing: border-box;
+}
+
+/* --- Header Section --- */
+.hero {
+  background: url("./images/Background.jpg") no-repeat center/cover;
+  height: 90vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+/* FIXED: Removed white overlay (was making background blurry) */
+.hero::before {
+  content: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.hero p {
+  margin-bottom: 20px;
+  color: #f1f1f1;
+}
+
+.hero .guarantee {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+/* Header top bar */
+header .top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto 30px;
+}
+
+header .top-bar img {
+  height: 24px;
+  width: auto;
+}
+
+header .top-bar .language-selector {
+  display: flex;
+  align-items: center;
+  color: #eee;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+header .top-bar .language-selector img {
+  height: 16px;
+  margin-right: 5px;
+}
+
+/* Button */
+header .btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+  margin-bottom: 15px;
+}
+
+header .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Wavy background for header */
+.header-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: url('./images/Background.jpg') no-repeat center bottom;
+  background-size: cover;
+  pointer-events: none;
+}
+
+/* --- Features Section (Full-width, alternating blocks) --- */
+
+/* --- Features Section (Full-width, alternating blocks) --- */
+
+.features-grid {
+    padding: 80px 0;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.feature-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    padding: 60px 50px;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+    
+    /* 💥 CORRECTED DEFAULT: Image on the LEFT (Text Block then Image) */
+    flex-direction: row-reverse; 
+}
+
+/* Style for the text content block */
+.feature-item > div {
+    max-width: 450px;
+}
+
+.feature-item img {
+    max-width: 450px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Rule to Alternate the Layout --- */
+
+.feature-item.reverse {
+    /* 💥 CORRECTED REVERSE: Image on the RIGHT (Image then Text Block) */
+    flex-direction: row; 
+    gap: 120px;
+}
+
+
+/* --- Responsive Adjustment --- */
+@media (max-width: 992px) {
+    /* This part remains the same: stack everything vertically on mobile */
+    .feature-item, .feature-item.reverse {
+        flex-direction: column; 
+        text-align: center;
+        gap: 30px;
+        padding: 40px 20px;
+    }
+    .feature-item img {
+        max-width: 80%;
+    }
+    .feature-item > div {
+        max-width: 100%;
+    }
+}
+/* --- Advantages Section --- */
+.advantages {
+  display: flex;
+  justify-content: space-around;
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #fff;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.advantage-item {
+  flex: 1;
+  margin: 0 15px;
+  max-width: 300px;
+}
+
+.advantage-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.advantage-item h3 {
+  font-size: 1.4em;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.advantage-item p {
+  font-size: 0.95em;
+  color: #666;
+  line-height: 1.5;
+}
+
+.see-more-advantages {
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.95em;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.see-more-advantages:hover {
+  text-decoration: underline;
+}
+
+/* --- Map Section --- */
+.map-section {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: #f7f3f1;
+  margin-top: 50px;
+}
+
+.map-section h2 {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.map-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.map-content img {
+  max-width: 600px;
+  height: auto;
+}
+
+.map-stats {
+  text-align: left;
+}
+
+.map-stats p {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.map-stats p strong {
+  font-size: 1.5em;
+  color: #007bff;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.map-section .small-link {
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.85em;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.map-section .small-link:hover {
+  text-decoration: underline;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #333;
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+  header h1 {
+    font-size: 2.8em;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 80px;
+    padding: 60px 30px;
+  }
+
+  .feature-item,
+  .feature-item.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .feature-item img {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .advantages {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .advantage-item {
+    margin-bottom: 40px;
+  }
+
+  .map-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .map-content img {
+    max-width: 90%;
+  }
+
+  .map-stats {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.2em;
+  }
+
+  header p {
+    font-size: 1em;
+  }
+
+  .features-grid {
+    padding: 40px 20px;
+  }
+
+  .feature-item h2 {
+    font-size: 1.8em;
+  }
+
+  .feature-item p {
+    font-size: 1em;
+  }
+
+  .advantages {
+    padding: 40px 10px;
+  }
+
+  .advantage-item h3 {
+    font-size: 1.2em;
+  }
+
+  .map-section h2 {
+    font-size: 2em;
+  }
+
+  .map-stats p {
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  header .btn {
+    padding: 12px 25px;
+    font-size: 1em;
+  }
+
+  .feature-item img {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .feature-item h2 {
+    font-size: 1.5em;
+  }
+
+  .map-section h2 {
+    font-size: 1.8em;
+  }
+
+  .map-stats p {
+    font-size: 1.2em;
+  }
+}
